@@ -5,7 +5,7 @@
 
 ### 截图
 
-<img src="https://raw.githubusercontent.com/qdsang/weapp-niu-shop/master/image/screenshot.png">
+<img src="https://raw.githubusercontent.com/qdsang/weapp-niu-shop/master/image/screenshot.gif">
 
 
 ### 总结
