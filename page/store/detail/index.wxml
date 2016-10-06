@@ -1,0 +1,48 @@
+<view class="index">
+
+    <view class="swiper">
+        <swiper class="swiper-inter" indicator-dots="{{swiper.indicatorDots}}" vertical="{{swiper.vertical}}"
+        autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+            <block wx:for="{{swiper.data}}">
+                <swiper-item>
+                    <view class="swiper-item">
+                        <navigator url="{{item.url}}" class="swiper-item__nav">
+                            <image class="swiper-item__image" src="{{item.image}}" mode="aspectFill" />
+                        </navigator>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+    <view class="goods-info">
+        <text class="goods-info-title">{{spu.name}}</text>
+        <text class="goods-info-price">￥{{sku.price}}</text>
+    </view>
+    <view class="goods-options">
+        <block wx:for="{{options}}" wx:for-item="option">
+            <view wx:if="{{option.type==''}}" class="goods-option-widget goods-option-widget-">
+            </view>
+            <view wx:else class="goods-option-widget">
+                <view class="goods-option-label">{{option.name}}</view>
+                <view class="goods-option-item">
+                    <radio-group class="goods-option-item-group" data-option-name="{{option.name}}" bindchange="optionChange">
+                      <label class="goods-option-item-label {{item.isActive ? 'goods-option-item-label__active': ''}}" wx:for="{{option.values}}">
+                        <radio class="goods-option-item-radio" value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+                      </label>
+                    </radio-group>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <view class="goods-oper">
+        <button type="red" class="goods-oper-addcart" bindtap="addCart"> 加入购物车 </button>
+
+    </view>
+
+    <view class="goods-detail">
+
+    </view>
+
+</view>

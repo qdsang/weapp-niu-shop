@@ -1,0 +1,44 @@
+<view class="index">
+
+    <view class="swiper">
+        <swiper class="swiper-inter" indicator-dots="{{swiper.indicatorDots}}" vertical="{{swiper.vertical}}"
+        autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+            <block wx:for="{{swiper.data}}">
+                <swiper-item>
+                    <view class="swiper-item">
+                        <navigator url="{{item.url}}" class="swiper-item__nav">
+                            <image class="swiper-item__image" src="{{item.image}}" mode="aspectFill" />
+                        </navigator>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+    <view class="list" wx:for="{{list}}">
+        <view class="list-head">
+            <text class="list-head__title">{{item.title}}</text>
+            <text class="list-head__subtitle">{{item.subtitle}}</text>
+        </view>
+        <view class="list-body">
+            <block wx:for="{{item.widget}}" wx:for-item="widget">
+                <view wx:if="{{widget.type=='card'}}" class="list-widget list-widget-card">
+                    <navigator url="{{widget.url}}" class="list-widget-card__nav">
+                        <view class="list-widget-card__view">
+                            <image class="list-widget-card__image" src="{{widget.image}}" mode="aspectFill" />
+                        </view>
+                        <text class="list-widget-card__title">{{widget.title}}</text>
+                        <text class="list-widget-card__subtitle">{{widget.subtitle}}</text>
+                    </navigator>
+                </view>
+                <view wx:elif="{{widget.type=='image'}}" class="list-widget list-widget-image">
+                    <navigator url="{{widget.url}}" class="list-widget-image__nav">
+                        <image class="list-widget-image__image" src="{{widget.image}}" mode="aspectFill" />
+                    </navigator>
+                </view>
+                <view wx:else class="list-widget">未开发</view>
+            </block>
+        </view>
+    </view>
+
+</view>
