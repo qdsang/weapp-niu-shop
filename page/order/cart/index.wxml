@@ -1,3 +1,21 @@
-<view class="index">
 
+<view wx:if="{{cartList.length==0}}" class="cart-null">
+    购物车为空
+</view>
+<view wx:else class="cart-index">
+    <view class="cart-item"  wx:for="{{cartList}}">
+        <navigator url="{{item.url}}" class="cart-item-info">
+            <image class="cart-item-info-pic" src="{{item.imgUrl}}" mode="aspectFill" />
+        </navigator>
+
+        <view class="cart-item-attr">
+            <text class="cart-item-attr-info">{{item.name}}</text>
+            <text class="cart-item-attr-info">数量：{{item.quantity}}</text>
+            <text class="cart-item-attr-info">总价：{{item.price.retailPrice * item.quantity}}</text>
+        </view>
+    </view>
+    <view class="cart-submit" >
+        <view class="cart-submit-sum">总计：</view>
+        <button type="red" class="cart-submit-gopay" bindtap="submit"> 去结算 </button>
+    </view>
 </view>
